@@ -1,0 +1,14 @@
+version: '3'
+services:
+  registry:
+    image: registry
+    ports:
+      - 5000:5000
+
+  builder:
+    build: ./builder
+    volumes:
+      - ./test_image:/workdir/image:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - registry
