@@ -1,4 +1,6 @@
 #!/bin/sh
 cd /workdir/image
-docker build -t registry:5000/test_image .
-docker push registry:5000/test_image
+REGISTRY_HOST=localhost
+
+docker build -t $REGISTRY_HOST:5000/test_image .
+docker push $REGISTRY_HOST:5000/test_image
